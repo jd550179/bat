@@ -549,7 +549,7 @@ double longestRunFrequency(unsigned longestObserved, unsigned int nTrials)
 
 // ---------------------------------------------------------
 double Rvalue(const std::vector<double> & chain_means, const std::vector<double> & chain_variances,
-              const unsigned & chain_length, const bool & strict)  throw (std::invalid_argument, std::domain_error)
+              const unsigned & chain_length, const bool & strict) noexcept(false)
 {
    if (chain_means.size() != chain_variances.size())
       throw std::invalid_argument("BCMath::RValue: chain means and chain variances are not aligned!");
@@ -662,7 +662,7 @@ double Rvalue(const std::vector<double> & chain_means, const std::vector<double>
 }
 
 // ---------------------------------------------------------
-double CorrectPValue(const double & pvalue, const unsigned & npar, const unsigned & nobservations) throw (std::domain_error)
+double CorrectPValue(const double & pvalue, const unsigned & npar, const unsigned & nobservations) noexcept(false)
 {
    // avoid pathologies
    if (pvalue < 0 or pvalue > 1)
@@ -688,7 +688,7 @@ double CorrectPValue(const double & pvalue, const unsigned & npar, const unsigne
 
 // ---------------------------------------------------------
 double FastPValue(const std::vector<unsigned> & observed, const std::vector<double> & expected,
-                  unsigned nIterations, unsigned seed) throw (std::invalid_argument)
+                  unsigned nIterations, unsigned seed) noexcept(false)
 {
    size_t nbins = observed.size();
    if (nbins != expected.size())

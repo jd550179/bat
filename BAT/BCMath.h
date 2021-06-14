@@ -215,7 +215,7 @@ namespace BCMath
 	 * @return R-value
 	 */
 	double Rvalue(const std::vector<double> & chain_means, const std::vector<double> & chain_variances,
-                  const unsigned & chain_length, const bool & strict = true) throw (std::invalid_argument, std::domain_error);
+                  const unsigned & chain_length, const bool & strict = true) noexcept(false);
 
    /** \name p value methods */
    /** @{ */
@@ -228,7 +228,7 @@ namespace BCMath
 	 * @param nobservations The number of data points.
 	 * @return corrected p value
 	 */
-	double CorrectPValue(const double & pvalue, const unsigned & npar, const unsigned & nobservations) throw (std::domain_error);
+	double CorrectPValue(const double & pvalue, const unsigned & npar, const unsigned & nobservations) noexcept(false);
 
 	/**
 	 * Calculate the p value using fast MCMC for a histogram and the likelihood as test statistic.
@@ -241,7 +241,7 @@ namespace BCMath
 	 * @return The p value
 	 */
 	double FastPValue(const std::vector<unsigned> & observed, const std::vector<double> & expected,
-	                  unsigned nIterations = 1e5, unsigned seed = 0) throw (std::invalid_argument);
+	                  unsigned nIterations = 1e5, unsigned seed = 0) noexcept(false);
 
 	/** @} */
 }
